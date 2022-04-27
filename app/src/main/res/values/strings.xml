@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FilmsSearch</string>
+    <string name="app_name">Films</string>
     <string name="movieposters">Постеры предоставлены https://www.movieposters.com/</string>
     <string name="btn_menu">Меню</string>
     <string name="menu_favorites_title">Избранное</string>
