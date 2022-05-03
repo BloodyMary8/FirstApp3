@@ -5,10 +5,8 @@ plugins {
 
 android {
     compileSdk 31
-
     buildFeatures {
         viewBinding true
-        dataBinding true
     }
     defaultConfig {
         applicationId "com.devchernikova.firstapp"
@@ -19,7 +17,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
