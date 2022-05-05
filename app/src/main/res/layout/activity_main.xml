@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/search_it"
             app:titleTextColor="@android:color/white"
-            app:navigationIcon="@drawable/ic_sharp_menu_24"
+            app:navigationIcon="@drawable/ic_baseline_menu_24"
             app:menu="@menu/top_bar"
             android:background="@color/menu_shape"/>
 
