@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/search_it"
             app:titleTextColor="@android:color/white"
-            app:navigationIcon="@drawable/ic_sharp_menu_24"
+            app:navigationIcon="@drawable/ic_baseline_menu_24"
             app:menu="@menu/top_bar"
             android:background="@color/menu_shape"/>
 
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1 "
-            app:srcCompat="@drawable/clip" />
+            app:srcCompat="@drawable/clip"/>
 
         <ImageView
             android:id="@+id/imageView4"
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/movie" />
+            app:srcCompat="@drawable/movie"/>
 
     </LinearLayout>
     </androidx.cardview.widget.CardView>
