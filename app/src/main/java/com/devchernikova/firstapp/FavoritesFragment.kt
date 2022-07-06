@@ -25,6 +25,8 @@ override fun onCreateView(
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding = FragmentFavoritesBinding.bind(view)
+
+    AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(), 2)
     //Получаем список при транзакции фрагмента
     val favoritesList: List<Film> = listOf(
     Film(
