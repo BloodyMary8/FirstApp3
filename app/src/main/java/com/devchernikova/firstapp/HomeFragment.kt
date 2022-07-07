@@ -12,9 +12,11 @@ import com.devchernikova.firstapp.databinding.FragmentHomeBinding
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private var fragmentHomeBinding: FragmentHomeBinding? = null
 
     val filmsDataBase = listOf(
         Film(
@@ -53,7 +55,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             "Set in a high fantasy world where magic exists, but only some can access it, a woman named Moiraine crosses paths with five young men and women. This sparks a dangerous, world-spanning journey. Based on the book series by Robert Jordan."
         ),
     )
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,8 +69,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentHomeBinding.bind(view)
-        var fragmentHomeBinding = binding
+        fragmentHomeBinding = binding
+
         AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+
 
         binding.searchView.setOnClickListener {
             binding.searchView.isIconified = false
@@ -89,8 +96,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 //Фильтруем список на поискк подходящих сочетаний
                 val result = filmsDataBase.filter {
                     //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault())
-                        .contains(newText.toLowerCase(Locale.getDefault()))
+                    it.title.lowercase(Locale.getDefault())
+                        .contains(newText.lowercase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)
@@ -116,4 +123,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             filmsAdapter.addItems(filmsDataBase)
         }
 
+override fun onDestroyView() {
+    // Consider not storing the binding instance in a field, if not needed.
+    fragmentHomeBinding = null
+    super.onDestroyView()
+}
     }
