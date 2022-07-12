@@ -21,6 +21,7 @@ import com.devchernikova.firstapp.databinding.FilmItemBinding
                 filmItemBinding.poster.setImageResource(film.poster)
             //Устанавливаем описание
                 filmItemBinding.description.text = film.description
+                filmItemBinding.ratingDonut.setProgress((film.rating * 10).toInt())
     }
 }
 
