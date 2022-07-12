@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <color name="menu_shape">#6C6A6A</color>
@@ -10,5 +11,9 @@
     <color name="pink">#ea7dc7</color>
     <color name="fiolet">#9764c7</color>
     <color name="dark_grey">#3A3232</color>
+    <color name="colorPrimary">#7C4DFF</color>
+    <color name="colorPrimaryDark">#536DFE</color>
+    <color name="colorAccent">#FE53BA</color>
+
 
 </resources>
