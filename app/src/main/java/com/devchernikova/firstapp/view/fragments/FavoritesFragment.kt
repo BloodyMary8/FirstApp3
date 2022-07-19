@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.devchernikova.firstapp.view.rv_adapters.FilmListRecyclerAdapter
+import com.devchernikova.firstapp.MainActivity
+import com.devchernikova.firstapp.R
+import com.devchernikova.firstapp.view.rv_adapters.TopSpacingItemDecoration
 import com.devchernikova.firstapp.databinding.FragmentFavoritesBinding
+import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.utils.AnimationHelper
 
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {

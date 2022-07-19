@@ -1,10 +1,11 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.databinding.FragmentSelectionsBinding
-
+import com.devchernikova.firstapp.utils.AnimationHelper
 
 
 class SelectionsFragment : Fragment(R.layout.fragment_selections) {

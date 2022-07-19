@@ -1,12 +1,13 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.rv_adapters
 
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.devchernikova.firstapp.view.rv_viewholders.FilmViewHolder
 import com.devchernikova.firstapp.databinding.FilmItemBinding
-
+import com.devchernikova.firstapp.domain.Film
 
 
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
