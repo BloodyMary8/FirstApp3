@@ -120,4 +120,5 @@ class HomeFragment : Fragment() {
         fragmentHomeBinding = null
         super.onDestroyView()
     }
+
 }

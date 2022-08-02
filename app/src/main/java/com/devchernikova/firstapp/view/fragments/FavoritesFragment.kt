@@ -35,18 +35,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
             AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(), 2)
 
     //Получаем список при транзакции фрагмента
-    val favoritesList: List<Film> = listOf(
-    Film(
-        R.drawable.poster1,
-        "Bosch Legacy",
-        "An L.A.P.D. homicide detective works to solve the murder of a thirteen-year-old boy while standing trial in federal court for the murder of a serial killer."
-    ),
-    Film(
-        R.drawable.poster2,
-        "Picard",
-        "Follow-up series to Звездный путь: Следующее поколение (1987) and Звездный путь: Возмездие (2002) that centers on Jean-Luc Picard in the next chapter of his life."
-    ),
-    )
+        val favoritesList: List<Film> = emptyList()
 
     binding.favoritesRecycler.apply {
         filmsAdapter =
