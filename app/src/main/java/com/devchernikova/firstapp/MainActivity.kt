@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.devchernikova.firstapp.databinding.ActivityMainBinding
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.view.fragments.*
 
 

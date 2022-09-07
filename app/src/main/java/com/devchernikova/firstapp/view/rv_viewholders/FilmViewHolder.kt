@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.devchernikova.firstapp.databinding.FilmItemBinding
 import com.bumptech.glide.Glide
 import com.devchernikova.firstapp.data.ApiConstants
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 
 
 class FilmViewHolder(val filmItemBinding: FilmItemBinding) : RecyclerView.ViewHolder(filmItemBinding.root) {

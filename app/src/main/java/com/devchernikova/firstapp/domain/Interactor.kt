@@ -1,11 +1,11 @@
 package com.devchernikova.firstapp.domain
 
 
-import android.media.AudioMetadata
-import android.provider.Contacts.SettingsColumns.KEY
+import androidx.lifecycle.LiveData
 import com.devchernikova.firstapp.PreferenceProvider
 import com.devchernikova.firstapp.data.MainRepository
 import com.devchernikova.firstapp.data.TmdbApi
+import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.data.entity.TmdbResultsDto
 import com.devchernikova.firstapp.utils.Converter
 import com.devchernikova.firstapp.viewmodel.HomeFragmentViewModel
@@ -22,9 +22,9 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                 //Кладем фильмы в бд
                 list.forEach {
-                    repo.putToDb(film = it)
+                    repo.putToDb(list)
                 }
-                callback.onSuccess(list)
+                callback.onSuccess()
             }
 
             override fun onFailure(call: Call<TmdbResultsDto>, t: Throwable) {
@@ -33,7 +33,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
             }
         })
     }
-    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
+    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {
         preferences.saveDefaultCategory(category)
