@@ -2,8 +2,7 @@ package com.devchernikova.firstapp.di.modules
 
 import android.content.Context
 import androidx.room.Room
-import com.devchernikova.firstapp.data.AppDatabase
-import com.devchernikova.firstapp.data.DatabaseHelper
+import com.devchernikova.firstapp.data.db.AppDatabase
 import com.devchernikova.firstapp.data.MainRepository
 import com.devchernikova.firstapp.data.dao.FilmDao
 import dagger.Module

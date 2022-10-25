@@ -5,19 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import android.widget.SearchView.OnQueryTextListener
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.devchernikova.firstapp.AutoDisposable
 import com.devchernikova.firstapp.MainActivity
-import com.devchernikova.firstapp.addTo
 import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.databinding.FragmentHomeBinding
 import com.devchernikova.firstapp.utils.AnimationHelper
+import com.devchernikova.firstapp.utils.AutoDisposable
+import com.devchernikova.firstapp.utils.addTo
 import com.devchernikova.firstapp.view.rv_adapters.FilmListRecyclerAdapter
 import com.devchernikova.firstapp.view.rv_adapters.TopSpacingItemDecoration
 import com.devchernikova.firstapp.viewmodel.HomeFragmentViewModel
@@ -40,17 +39,6 @@ class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
 
-
-    private var filmsDataBase = listOf<Film>()
-        //Используем backing field
-        set(value) {
-            //Если придет такое же значение то мы выходим из метода
-            if (field == value) return
-            //Если прило другое значение, то кладем его в переменную
-            field = value
-            //Обновляем RV адаптер
-            filmsAdapter.addItems(field)
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,16 +67,21 @@ class HomeFragment : Fragment() {
         viewModel.filmsListData
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { list ->
+            .subscribeBy(onNext={ list ->
                 filmsAdapter.addItems(list)
-            }
+            },
+                onError={ Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT).show()
+                }
+            )
             .addTo(autoDisposable)
         viewModel.showProgressBar
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
+            .subscribeBy (onNext={
                 binding.progressBar.isVisible = it
-            }
+            },
+        onError ={ Toast.makeText(requireContext(), "Что-то пошло не так", Toast.LENGTH_SHORT).show()
+        })
             .addTo(autoDisposable)
     }
 
@@ -148,6 +141,8 @@ class HomeFragment : Fragment() {
                 },
                 onNext = {
                     filmsAdapter.addItems(it)
+                },
+                onComplete = {Toast.makeText(requireContext(), "все ок", Toast.LENGTH_SHORT).show()
                 }
             )
             .addTo(autoDisposable)

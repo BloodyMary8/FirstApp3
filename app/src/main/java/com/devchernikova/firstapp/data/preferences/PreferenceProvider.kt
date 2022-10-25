@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences

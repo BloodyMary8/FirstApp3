@@ -1,9 +1,8 @@
-package com.devchernikova.firstapp.data.entity
+package com.devchernikova.remote_module.entity
 
-import com.devchernikova.firstapp.data.entity.TmdbFilm
 import com.google.gson.annotations.SerializedName
 
-data class TmdbResultsDto(
+data class TmdbResults(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")

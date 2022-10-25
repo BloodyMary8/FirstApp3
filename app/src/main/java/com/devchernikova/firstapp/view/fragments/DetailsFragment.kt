@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.devchernikova.firstapp.data.ApiConstants
+import com.devchernikova.remote_module.entity.ApiConstants
 import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.R.layout.fragment_details
 import com.devchernikova.firstapp.databinding.FragmentDetailsBinding
@@ -69,7 +69,7 @@ class DetailsFragment : Fragment(){
         binding.detailsToolbar.title = film.title
         //Устанавливаем картинку
         Glide.with(this)
-            .load(ApiConstants.IMAGES_URL + "w780" + film.poster)
+            .load(com.devchernikova.remote_module.entity.ApiConstants.IMAGES_URL + "w780" + film.poster)
             .centerCrop()
             .into(binding.detailsPoster)
         //Устанавливаем описание

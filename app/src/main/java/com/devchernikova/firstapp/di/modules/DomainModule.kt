@@ -1,10 +1,10 @@
 package com.devchernikova.firstapp.di.modules
 
 import android.content.Context
-import com.devchernikova.firstapp.PreferenceProvider
+import com.devchernikova.firstapp.data.preferences.PreferenceProvider
 import com.devchernikova.firstapp.data.MainRepository
-import com.devchernikova.firstapp.data.TmdbApi
 import com.devchernikova.firstapp.domain.Interactor
+import com.devchernikova.remote_module.TmdbApi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
