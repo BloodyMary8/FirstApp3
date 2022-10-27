@@ -59,12 +59,24 @@ class HomeFragment : Fragment() {
 
         viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
             filmsDataBase = it
+            filmsAdapter.addItems(it)
         })
 
         AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot,
             requireActivity(),
             1)
 
+        fun initPullToRefresh() {
+            //Вешаем слушатель, чтобы вызвался pull to refresh
+            binding.pullToRefresh.setOnRefreshListener {
+                //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+                filmsAdapter.items.clear()
+                //Делаем новый запрос фильмов на сервер
+                viewModel.getFilms()
+                //Убираем крутящееся колечко
+                binding.pullToRefresh.isRefreshing = false
+            }
+        }
 
         binding.searchView.setOnClickListener {
             binding.searchView.isIconified = false
@@ -96,6 +108,7 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
+
 
         binding.mainRecycler.apply {
             filmsAdapter =

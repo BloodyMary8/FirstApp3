@@ -20,4 +20,9 @@
         android:icon="@drawable/ic_baseline_live_tv_24"
         android:title="@string/menu_selections_title"
         app:showAsAction="withText"/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_baseline_ok_up_24"
+        android:title="@string/menu_settings_title_text"
+        app:showAsAction="withText"/>
 </menu>
