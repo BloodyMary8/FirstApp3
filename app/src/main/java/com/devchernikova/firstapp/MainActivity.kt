@@ -24,36 +24,6 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
 }
-    private fun initNavigation() {
-        binding.topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.settings -> {
-                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-
-        binding.bottom.setOnItemSelectedListener {
-
-            when (it.itemId) {
-                R.id.favorites -> {
-                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.watch_later -> {
-                    Toast.makeText(this, "Посмотреть похже", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.selections -> {
-                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-    }
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
         val bundle = Bundle()
@@ -71,6 +41,42 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    private fun initNavigation() {
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settings -> {
+                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+
+        binding.bottom.setOnItemSelectedListener {
+
+            when (it.itemId) {
+                R.id.favorites -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                    true
+                }
+                R.id.watch_later -> {
+                    Toast.makeText(this, "Посмотреть похже", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.selections -> {
+                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
 }
 
 

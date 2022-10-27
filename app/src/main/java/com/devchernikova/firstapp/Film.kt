@@ -1,11 +1,13 @@
 package com.devchernikova.firstapp
 
-import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
+
 
 @Parcelize
 data class Film(
-    val title: String,
     val poster: Int,
-    val description: String
-) : Parcelable
+    val title: String,
+    val description: String,
+    var isInFavorites: Boolean = false
+) : android.os.Parcelable
