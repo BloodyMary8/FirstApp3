@@ -1,12 +1,13 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.rv_viewholders
 
 
 import androidx.recyclerview.widget.RecyclerView
 import com.devchernikova.firstapp.databinding.FilmItemBinding
 import com.bumptech.glide.Glide
+import com.devchernikova.firstapp.domain.Film
 
 
-        class FilmViewHolder(val filmItemBinding: FilmItemBinding) : RecyclerView.ViewHolder(filmItemBinding.root) {
+class FilmViewHolder(val filmItemBinding: FilmItemBinding) : RecyclerView.ViewHolder(filmItemBinding.root) {
 
             private val title = filmItemBinding.title
             private val poster = filmItemBinding.poster

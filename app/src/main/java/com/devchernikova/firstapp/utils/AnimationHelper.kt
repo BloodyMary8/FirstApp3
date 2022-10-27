@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.utils
 
 import android.app.Activity
 import android.view.View

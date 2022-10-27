@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.domain
 
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable

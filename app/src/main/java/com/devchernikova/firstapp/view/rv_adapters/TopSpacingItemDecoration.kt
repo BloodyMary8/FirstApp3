@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect

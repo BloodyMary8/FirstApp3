@@ -1,12 +1,14 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.view.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.R.layout.fragment_details
 import com.devchernikova.firstapp.databinding.FragmentDetailsBinding
+import com.devchernikova.firstapp.domain.Film
 
 
 class DetailsFragment : Fragment(){
