@@ -26,6 +26,7 @@ import com.bumptech.glide.Glide
                     .into(poster)
                 //Устанавливаем описание
                 description.text = film.description
+                filmItemBinding.ratingDonut.setProgress((film.rating * 10).toInt())
             }
         }
 

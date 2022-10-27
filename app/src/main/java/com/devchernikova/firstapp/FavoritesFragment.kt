@@ -11,22 +11,23 @@ import com.devchernikova.firstapp.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
 
-private lateinit var binding: FragmentFavoritesBinding
-private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private var fragmentFavoritesBinding: FragmentFavoritesBinding? = null
+    private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
-override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
-    savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
-override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    binding = FragmentFavoritesBinding.bind(view)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            val binding = FragmentFavoritesBinding.bind(view)
+            fragmentFavoritesBinding = binding
 
-    AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(), 2)
+            AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(), 2)
+
     //Получаем список при транзакции фрагмента
     val favoritesList: List<Film> = listOf(
     Film(
@@ -59,5 +60,12 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     //Кладем нашу БД в RV
     filmsAdapter.addItems(favoritesList)
     }
+
+override fun onDestroyView() {
+    // Consider not storing the binding instance in a field, if not needed.
+    fragmentFavoritesBinding = null
+    super.onDestroyView()
+}
+
 }
 

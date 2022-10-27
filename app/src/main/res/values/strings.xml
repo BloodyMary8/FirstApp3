@@ -6,8 +6,8 @@
     <string name="menu_selections_title">Подборки</string>
     <string name="menu_home_title_text">Главная</string>
     <string name="search_it">Кинопоиск</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
 
 </resources>

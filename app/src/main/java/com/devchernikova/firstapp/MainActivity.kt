@@ -2,53 +2,50 @@ package com.devchernikova.firstapp
 
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.devchernikova.firstapp.databinding.ActivityMainBinding
 
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding=ActivityMainBinding.inflate(layoutInflater)
-    setContentView(binding.root)
 
-    initNavigation()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        initNavigation()
 
         //Зупускаем фрагмент при старте
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragment_placeholder, HomeFragment())
+            .add(R.id.fragment_placeholder, WatchLaterFragment())
             .addToBackStack(null)
             .commit()
-
     }
 
-    fun launchDetailsFragment(film: Film) {
-        //Создаем "посылку"
-        val bundle = Bundle()
-        //Кладем наш фильм в "посылку"
-        bundle.putParcelable("film", film)
-        //Кладем фрагмент с деталями в перменную
-        val fragment = DetailsFragment()
-        //Прикрепляем нашу "посылку" к фрагменту
-        fragment.arguments = bundle
+        fun launchDetailsFragment(film: Film) {
+            //Создаем "посылку"
+            val bundle = Bundle()
+            //Кладем наш фильм в "посылку"
+            bundle.putParcelable("film", film)
+            //Кладем фрагмент с деталями в перменную
+            val fragment = DetailsFragment()
+            //Прикрепляем нашу "посылку" к фрагменту
+            fragment.arguments = bundle
 
-        //Запускаем фрагмент
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_placeholder, fragment)
-            .addToBackStack(null)
-            .commit()
+            //Запускаем фрагмент
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_placeholder, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
-
-    }
     private fun initNavigation() {
-        binding.bottom.setOnNavigationItemSelectedListener {
+        binding.bottomNavigation.setOnItemSelectedListener {
 
             when (it.itemId) {
                 R.id.home -> {
