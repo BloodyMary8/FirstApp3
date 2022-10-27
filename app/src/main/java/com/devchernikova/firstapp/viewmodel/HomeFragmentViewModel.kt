@@ -34,4 +34,7 @@ class HomeFragmentViewModel : ViewModel() {
         fun onSuccess(films: List<Film>)
         fun onFailure()
     }
+    fun onFailure() {
+        filmsListLiveData.postValue(interactor.getFilmsFromDB())
+    }
 }
