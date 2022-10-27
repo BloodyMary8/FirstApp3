@@ -11,7 +11,7 @@ import com.devchernikova.firstapp.MainActivity
 import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.view.rv_adapters.TopSpacingItemDecoration
 import com.devchernikova.firstapp.databinding.FragmentFavoritesBinding
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.utils.AnimationHelper
 
 

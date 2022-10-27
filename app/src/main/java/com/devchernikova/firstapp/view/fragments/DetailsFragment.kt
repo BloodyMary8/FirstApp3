@@ -10,7 +10,7 @@ import com.devchernikova.firstapp.data.ApiConstants
 import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.R.layout.fragment_details
 import com.devchernikova.firstapp.databinding.FragmentDetailsBinding
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 
 
 class DetailsFragment : Fragment(){

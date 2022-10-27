@@ -1,7 +1,7 @@
 package com.devchernikova.firstapp.utils
 
 import com.devchernikova.firstapp.data.entity.TmdbFilm
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 
 object Converter {
     @JvmStatic

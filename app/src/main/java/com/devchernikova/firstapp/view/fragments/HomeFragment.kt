@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,7 @@ import com.devchernikova.firstapp.MainActivity
 import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.view.rv_adapters.TopSpacingItemDecoration
 import com.devchernikova.firstapp.databinding.FragmentHomeBinding
-import com.devchernikova.firstapp.domain.Film
+import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.utils.AnimationHelper
 import com.devchernikova.firstapp.viewmodel.HomeFragmentViewModel
 import java.util.*
@@ -60,6 +61,10 @@ class HomeFragment : Fragment() {
         viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
             filmsDataBase = it
             filmsAdapter.addItems(it)
+        })
+
+        viewModel.showProgressBar.observe(viewLifecycleOwner, Observer<Boolean> {
+            binding.progressBar.isVisible = it
         })
 
         AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot,
@@ -133,5 +138,6 @@ class HomeFragment : Fragment() {
         fragmentHomeBinding = null
         super.onDestroyView()
     }
+
 
 }

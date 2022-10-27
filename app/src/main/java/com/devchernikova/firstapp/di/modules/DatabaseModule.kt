@@ -1,8 +1,11 @@
 package com.devchernikova.firstapp.di.modules
 
 import android.content.Context
+import androidx.room.Room
+import com.devchernikova.firstapp.data.AppDatabase
 import com.devchernikova.firstapp.data.DatabaseHelper
 import com.devchernikova.firstapp.data.MainRepository
+import com.devchernikova.firstapp.data.dao.FilmDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -11,9 +14,14 @@ import javax.inject.Singleton
 class DatabaseModule {
     @Singleton
     @Provides
-    fun provideDatabaseHelper(context: Context) = DatabaseHelper(context)
+    fun provideFilmDao(context: Context) =
+        Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "film_db"
+        ).build().filmDao()
 
     @Provides
     @Singleton
-    fun provideRepository(databaseHelper: DatabaseHelper) = MainRepository(databaseHelper)
+    fun provideRepository(filmDao: FilmDao) = MainRepository(filmDao)
 }
