@@ -24,4 +24,5 @@ interface AppComponent {
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
     //метод для того, чтобы появилась возможность внедрять зависимости в SettingsFragmentViewModel
     fun inject(settingsFragmentViewModel: SettingsFragmentViewModel)
+
 }
