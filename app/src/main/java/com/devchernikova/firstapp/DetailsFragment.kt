@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.devchernikova.firstapp.R.layout.fragment_details
-import com.devchernikova.firstapp.databinding.FilmItemBinding
 import com.devchernikova.firstapp.databinding.FragmentDetailsBinding
 
 

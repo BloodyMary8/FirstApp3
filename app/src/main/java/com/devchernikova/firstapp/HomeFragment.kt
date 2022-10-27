@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.devchernikova.firstapp.databinding.FragmentHomeBinding
 import java.util.*
 
+
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
@@ -58,24 +59,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
-
     }
 
-    private lateinit var binding: FragmentHomeBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentHomeBinding.bind(view)
+        val binding = FragmentHomeBinding.bind(view)
+        var fragmentHomeBinding = binding
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
 
         binding.searchView.setOnClickListener {
             binding.searchView.isIconified = false
         }
 
+        //Подключаем слушателя изменений введенного текста в поиска
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             //Этот метод отрабатывает при нажатии кнопки "поиск" на софт клавиатуре
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
+
             //Этот метод отрабатывает на каждое изменения текста
             override fun onQueryTextChange(newText: String): Boolean {
                 //Если ввод пуст то вставляем в адаптер всю БД
@@ -85,8 +88,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
                 //Фильтруем список на поискк подходящих сочетаний
                 val result = filmsDataBase.filter {
-                    //Чтобы все работало правильно, нужно и запрос, и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault()).contains(newText.toLowerCase(Locale.getDefault()))
+                    //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
+                    it.title.toLowerCase(Locale.getDefault())
+                        .contains(newText.toLowerCase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)
@@ -94,21 +98,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
 
-        binding.mainRecycler.apply {
-            filmsAdapter = FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener{
-                override fun click(film: Film) {
-                    (requireActivity() as MainActivity).launchDetailsFragment(film)
-                }
-            })
-            //Присваиваем адаптер
-            adapter = filmsAdapter
-            //Присвои layoutmanager
-            layoutManager = LinearLayoutManager(requireContext())
-            //Применяем декоратор для отступов
-            val decorator = TopSpacingItemDecoration(8)
-            addItemDecoration(decorator)
+            binding.mainRecycler.apply {
+                filmsAdapter =
+                    FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
+                        override fun click(film: Film) =
+                            (requireActivity() as MainActivity).launchDetailsFragment(film)
+                    })
+                //Присваиваем адаптер
+                adapter = filmsAdapter
+                //Присвои layoutmanager
+                layoutManager = LinearLayoutManager(requireContext())
+                //Применяем декоратор для отступов
+                val decorator = TopSpacingItemDecoration(8)
+                addItemDecoration(decorator)
+            }
+            //Кладем нашу БД в RV
+            filmsAdapter.addItems(filmsDataBase)
         }
-        //Кладем нашу БД в RV
-        filmsAdapter.addItems(filmsDataBase)
+
     }
-}

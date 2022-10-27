@@ -2,7 +2,13 @@
 <resources>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="menu_shape">#464DE8</color>
+    <color name="menu_shape">#6C6A6A</color>
     <color name="menu_shape2">#3390ED</color>
-    <color name="grey">#798DAAC6</color>
+    <color name="grey">#f5eded</color>
+    <color name="blue">#4592af</color>
+    <color name="dark_blue">#226089</color>
+    <color name="pink">#ea7dc7</color>
+    <color name="fiolet">#9764c7</color>
+    <color name="dark_grey">#3A3232</color>
+
 </resources>
