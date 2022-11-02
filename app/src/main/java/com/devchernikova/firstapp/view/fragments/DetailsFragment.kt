@@ -75,14 +75,13 @@ class DetailsFragment : Fragment() {
         }
 
         binding.detailsFabWatchLater.setOnClickListener {
-            NotificationHelper.createNotification(requireContext(), film)
+            NotificationHelper.notificationSet(requireContext(), film)
         }
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        scope.cancel()
-    }
+        override fun onDestroy() {
+            super.onDestroy()
+            scope.cancel()
+        }
 
     private fun setFilmsDetails() {
         //Получаем наш фильм из переданного бандла
