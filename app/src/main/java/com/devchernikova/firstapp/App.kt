@@ -5,7 +5,7 @@ import com.devchernikova.firstapp.di.AppComponent
 import com.devchernikova.firstapp.di.DaggerAppComponent
 import com.devchernikova.firstapp.di.modules.DatabaseModule
 import com.devchernikova.firstapp.di.modules.DomainModule
-import com.devchernikova.firstapp.di.modules.RemoteModule
+import com.devchernikova.remote_module.DaggerRemoteComponent
 
 
 class App : Application() {
@@ -15,8 +15,9 @@ class App : Application() {
         super.onCreate()
         instance = this
         //Создаем компонент
+        val remoteProvider = DaggerRemoteComponent.create()
         dagger = DaggerAppComponent.builder()
-            .remoteModule(RemoteModule())
+            .remoteProvider(remoteProvider)
             .databaseModule(DatabaseModule())
             .domainModule(DomainModule(this))
             .build()

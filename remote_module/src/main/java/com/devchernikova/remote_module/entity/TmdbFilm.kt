@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp.data.entity
+package com.devchernikova.remote_module.entity
 
 import com.google.gson.annotations.SerializedName
 

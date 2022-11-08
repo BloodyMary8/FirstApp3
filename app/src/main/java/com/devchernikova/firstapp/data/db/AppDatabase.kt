@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp.data
+package com.devchernikova.firstapp.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

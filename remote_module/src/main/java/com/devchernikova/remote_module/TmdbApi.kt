@@ -1,11 +1,10 @@
-package com.devchernikova.firstapp.data
+package com.devchernikova.remote_module
 
-import com.devchernikova.firstapp.data.entity.TmdbResultsDto
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import com.devchernikova.remote_module.entity.TmdbResults
 
 interface TmdbApi {
     @GET("3/movie/{category}")
@@ -14,7 +13,7 @@ interface TmdbApi {
         @Query("api_key") apiKey: String,
         @Query("language") language: String,
         @Query("page") page: Int
-    ): Call<TmdbResultsDto>
+    ): Observable<TmdbResults>
 
     @GET("3/search/movie")
     fun getFilmFromSearch(
@@ -22,5 +21,5 @@ interface TmdbApi {
         @Query("language") language: String,
         @Query("query") query: String,
         @Query("page") page: Int
-    ): Observable<TmdbResultsDto>
+    ): Observable<TmdbResults>
 }

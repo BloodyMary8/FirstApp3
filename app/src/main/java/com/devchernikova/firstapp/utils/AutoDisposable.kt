@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.utils
 
 
 import androidx.lifecycle.Lifecycle
