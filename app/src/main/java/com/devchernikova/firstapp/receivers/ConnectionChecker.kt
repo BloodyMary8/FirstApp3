@@ -1,4 +1,4 @@
-package com.devchernikova.firstapp
+package com.devchernikova.firstapp.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context

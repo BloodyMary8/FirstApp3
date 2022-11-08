@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.devchernikova.firstapp.databinding.ActivityMainBinding
 import com.devchernikova.firstapp.data.entity.Film
+import com.devchernikova.firstapp.receivers.ConnectionChecker
 import com.devchernikova.firstapp.view.fragments.*
 
 
