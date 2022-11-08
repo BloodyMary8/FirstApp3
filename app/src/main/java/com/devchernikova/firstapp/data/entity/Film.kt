@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATED_ANNOTATION")
+
 package com.devchernikova.firstapp.data.entity
 
 import kotlinx.android.parcel.Parcelize
