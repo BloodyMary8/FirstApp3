@@ -1,16 +1,16 @@
-package com.devchernikova.firstapp
-
-
 import android.content.BroadcastReceiver
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.devchernikova.firstapp.R
 import com.devchernikova.firstapp.databinding.ActivityMainBinding
 import com.devchernikova.firstapp.data.entity.Film
 import com.devchernikova.firstapp.receivers.ConnectionChecker
 import com.devchernikova.firstapp.view.fragments.*
+import com.devchernikova.firstapp.view.fragments.FavoritesFragment
+import com.devchernikova.firstapp.view.fragments.SelectionsFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(receiver)
