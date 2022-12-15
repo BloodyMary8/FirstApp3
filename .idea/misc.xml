@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/film_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_favorites.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_selections.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/layout/fragment_watch_later.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/menu/navigation_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp3/app/src/main/res/menu/top_bar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp8/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp8/app/src/main/res/drawable/corner_background.xml" value="0.278" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FirstApp8/app/src/main/res/drawable/ic_baseline_live_tv_24.xml" value="0.278" />
